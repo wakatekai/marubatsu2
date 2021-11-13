@@ -16,7 +16,7 @@
   ・起動時の画面
   ・終了方法
 
-3.1 UIの詳細
+3.1 アプリの全体の流れ
 ┏━　[起動時]  ・・・「○×ゲーム」「スタートしますか？yes or no」
 ┃　　　↓
 ┃   [ゲーム中]　・・・　○×と枠を表示
@@ -27,8 +27,34 @@
 　　　 ↓
 　　 おわり
 
-真：1以上
-偽：0
+3.2 状態の定義
+#define TITLE  0  // 起動時の画面
+#define GAME   1  // ゲーム中
+#define RESULT 2  // リザルト
+#define END    3  // 終了
 
-標準出力  standard output
-標準入力　standard input → stdin
+3.2 マス目の表示方法
+〇×だとフォントのサイズが揃わないので、別の記号で代用する
+例
+  1 2 3
+1 ■|□|■
+2 □|■|□
+3 ■|□|■
+
+4. マス目のデータ構造と制御
+
+4.1 マス目のデータ定義
+マス目の情報は2次元配列で表現するため下記のように定義する。
+int masu[3][3];
+
+また、現在どちらのターンなのかを次の変数で管理し、
+ターンをdefine文で定義する
+#define FIRST_TURN 0
+#define SECOND_TURN 1
+
+int turn;
+
+4.2 マス目にアクセスする方法
+マス目のアクセスするための関数読込と書き込みを用意する。
+int get_masu(int row, int col);
+void set_masu(int row, int col, int turn);
