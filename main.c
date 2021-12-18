@@ -1,3 +1,4 @@
+/*
 #include <stdio.h>
 #include <string.h>
 #define MAXBUFSIZE 256
@@ -15,21 +16,12 @@ int main()
    // printf("○×ゲーム\n");
    // printf("スタートしますか？ yes or no\n");
 
-    while ( status != END) 
+    while ( status != END)
     {
         printf("○×ゲーム");
         printf("ゲームをスタートしますか？");
 
         fgets(string, MAXBUFSIZE, stdin);
-        
-        if (strcmp(string, "yes\n") == 0)
-        {
-            printf("ゲーム中表示");
-        }
-        else
-        {
-            printf("input = %s 終了\n", string);
-        }
 
         if (strcmp(string, "yes\n") == 0)
         {
@@ -40,9 +32,20 @@ int main()
             printf("input = %s 終了\n", string);
         }
 
-        printf("ゲームを終了？ or もう一回やりますか？ もう一回やるときはyes 終了するときはno を入力\n");
+        if (strcmp(string, "yes\n") == 0)
+        {
+            printf("ゲーム中表示");
+        }
+        else
+        {
+            printf("input = %s 終了\n", string);
+        }
+
+        printf("ゲームを終了？ or もう一回やりますか？ もう一回やるときはyes
+終了するときはno を入力\n");
 
     }
 
     return 0;
 }
+*/
