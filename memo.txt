@@ -44,19 +44,20 @@ C ■|□|■
 
 4.1 マス目のデータ定義
 マス目の情報は2次元配列で表現するため下記のように定義する。
-int masu[3][3];
+int board[3][3];
 
 また、現在どちらのターンなのかを次の変数で管理し、
 ターンをdefine文で定義する
-#define FIRST_TURN 0
-#define SECOND_TURN 1
+#define EMPTY       0
+#define FIRST_TURN  1
+#define SECOND_TURN 2
 
 int turn;
 
 4.2 マス目にアクセスする方法
 マス目のアクセスするための関数読込と書き込みを用意する。
-int get_masu(int row, int col);
-int set_masu(int row, int col, int turn);
+int get_board(int row, int col);
+int set_board(int row, int col, int turn);
 かつこの関数では、範囲外にアクセスしないように判定を付けること
 範囲外アクセスしたら -1をを返す
 範囲外アクセスは保険で、ゲーム本体でも変なところに石を打たないようにガードを掛ける
@@ -66,7 +67,32 @@ A. マスの定義とアクセス関数　盤面を表示する
 B. 状態遷移（main.c）、ゲームの全体進行
 C. 先手と後手の入力する部分と勝ち負け判定　ゲームの本体
 
+
 担当：
 　藤森さん　A
-　多田さん　C
+　多田さん　C 　
 　森本　　　B　
+
+
+6. GameMainの内容
+　
+　先行の番です。どこに打ちますか？-> 
+　↓
+　勝敗判定
+　↓　
+　盤面を表示する
+　↓
+　後手の番ですどこに打ちますか？-> 
+　↓
+　勝敗判定
+　↓
+　盤面を表示する
+　↓
+　勝敗が決まるまで繰り返す
+
+　勝敗が決まったら、GameMainを抜ける
+　この時に、どっちが勝ったかをreturnする
+  #define ERROR         -1
+　#define RESULT_DRAW    0
+　#define RESULT_FIRST   1
+　#define RESULT_SECOND  2
