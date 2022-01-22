@@ -1,3 +1,4 @@
+/*
 #include <stdio.h>
 #include <string.h>
 
@@ -24,7 +25,7 @@ int main()
    // printf("○×ゲーム\n");
    // printf("スタートしますか？ yes or no\n");
 
-    
+
     answer = add(1, 3);
     ans2 = add(5, 4);
 
@@ -32,7 +33,7 @@ int main()
 
     fgets(string, MAXBUFSIZE, stdin);
 
-    
+
 
     if (strcmp(string, "yes\n") == 0)
     {
@@ -43,7 +44,7 @@ int main()
         printf("input = %s test\n", string);
     }
 
-    while (condition < 10) 
+    while (condition < 10)
     {
         printf("繰り返してます… %d\n", condition);
         condition = condition + 1;
@@ -51,3 +52,4 @@ int main()
 
     return 0;
 }
+*/

@@ -1,9 +1,10 @@
+#include "board.h"
+
 #include <stdio.h>
+
+/* #define DEBUG_BOARD_C */
 #define BOARD_ROW (3)
 #define BOARD_COL (3)
-#define STATUS_INIT (0)
-#define STATUS_OK (1)
-#define STATUS_ERROR (-1)
 
 int board[BOARD_ROW][BOARD_COL];
 
@@ -81,6 +82,7 @@ int show_Board(int row, int col) {
 }
 
 /* Debug */
+#ifdef DEBUG_BOARD_C
 int main(void) {
     int set_status;
     int get_status;
@@ -93,3 +95,4 @@ int main(void) {
 
     return;
 }
+#endif
