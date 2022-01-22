@@ -40,63 +40,63 @@ int game_main() {
 			scanf("%d", &j);
 		}
 
-		/* 入力値の判定　*/
+		/* 入力値の判定 */
 		if((i < 0 || 2 < i)
 		||	(j < 0 || 2 < j)){
 			return  (ERROR);
 		}
 
-		/* ゲーム継続（エラー）の判定　*/
-		game_end_flg = show_Board(int i, int j);
+		/* ゲーム継続（エラー）の判定 */
+		game_end_flg = show_Board(i, j);
 		if (game_end_flg == ERROR) {
 			return (ERROR);				/* ゲームの終了 */
 		}
 
 
-		/* セット　*/
-		set_Board(int i, int j, int turn);
+		/* セット */
+		set_Board(i, j, turn);
 
-		/*　勝敗の判定(値のセット) */
+		/* 勝敗の判定(値のセット) */
 		for(row = 0;row <= 2;row++){
 			for(col = 0;col <= 2;col++){
-				board[row][col]	= get_Board(int row, int col);	/* 現在のマス目情報取得*/
+				board[row][col]	= get_Board(row, col);	/* 現在のマス目情報取得*/
 			}	
 		}
 
 		/*　勝敗の判定(8パターンから判定) */
 		if(board[0][0] != 0){
-			if(((board[0][0] == bord[0][1]) && (board[0][0] == bord[0][2]))		/* 一行目（横）がそろっているか？ */
-			|| ((board[0][0] == bord[1][1]) && (board[0][0] == bord[2][2]))		/* 右下がり（斜め）がそろっているか？ */
-			|| ((board[0][0] == bord[1][0]) && (board[0][0] == bord[2][0])))	/* 一列目（縦）がそろっているか？ */
+			if(((board[0][0] == board[0][1]) && (board[0][0] == board[0][2]))		/* 一行目（横）がそろっているか？ */
+			|| ((board[0][0] == board[1][1]) && (board[0][0] == board[2][2]))		/* 右下がり（斜め）がそろっているか？ */
+			|| ((board[0][0] == board[1][0]) && (board[0][0] == board[2][0])))	/* 一列目（縦）がそろっているか？ */
 			{	
 				game_end_flg = 1;
 			}
 		}
 
 		if(board[0][1] != 0){
-			if((board[0][1] == bord[1][1]) && (board[0][1] == bord[2][1]))		/* 二列目（縦）がそろっているか？ */
+			if((board[0][1] == board[1][1]) && (board[0][1] == board[2][1]))		/* 二列目（縦）がそろっているか？ */
 			{	
 				game_end_flg = 1;
 			}
 		}
 
 		if(board[0][2] != 0){
-			if((board[0][2] == bord[1][1]) && (board[0][0] == bord[2][0]))		/* 左下がり（斜め）がそろっているか？ */
-			|| ((board[0][2] == bord[1][2]) && (board[0][2] == bord[2][2])))	/* 三列目（縦）がそろっているか？ */
+			if((board[0][2] == board[1][1]) && (board[0][0] == board[2][0]))		/* 左下がり（斜め）がそろっているか？ */
+			||((board[0][2] == board[1][2]) && (board[0][2] == board[2][2])))	/* 三列目（縦）がそろっているか？ */
 			{	
 				game_end_flg = 1;
 			}
 		}
 
 		if(board[1][0] != 0){
-			if((board[1][0] == bord[1][1]) && (board[1][0] == bord[1][2]))		/* 二行目（横）がそろっているか？ */
+			if((board[1][0] == board[1][1]) && (board[1][0] == board[1][2]))		/* 二行目（横）がそろっているか？ */
 			{
 				game_end_flg = 1;
 			}
 		}
 
 		if(board[2][0] != 0){
-			if((board[2][0] == bord[2][1]) && (board[2][0] == bord[2][2]))		/* 三行目（横）がそろっているか？ */
+			if((board[2][0] == board[2][1]) && (board[2][0] == board[2][2]))		/* 三行目（横）がそろっているか？ */
 			{
 				game_end_flg = 1;
 			}
