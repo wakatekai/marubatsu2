@@ -1,6 +1,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include "game_main.h"
 
 #define MAXBUFSIZE 256
 
@@ -14,20 +15,10 @@ typedef enum  {
 #define STATE_RESULT  2 //リザルト画面
 #define STATE_END     3 //終了
 
-//void init_all();  /* 全体初期化 */
+void init_all();  /* 全体初期化 */
 Bool loop_main(); /* 全体の状態遷移 */
 Bool disp_gametitle(Bool firstflg); /* ゲームタイトルの表示 */
 void disp_gameresult(); /* ゲームの結果表示 */
-
-/*仮　定義は多田さん*/
-#define ERROR         -1
-#define RESULT_DRAW    0
-#define RESULT_FIRST   1
-#define RESULT_SECOND  2
-int game_main()
-{
-    return RESULT_FIRST;
-}
 
 int main()
 {
