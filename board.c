@@ -42,7 +42,7 @@ int get_Board(int row, int col) {
         return_val = board[row][col];
     }
 
-    return board[row][col];
+    return return_val;
 }
 
 int show_Board(int row, int col) {
