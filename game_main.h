@@ -7,4 +7,6 @@
 #define RESULT_FIRST   1
 #define RESULT_SECOND  2
 
+#define LENGTH  3
+
 int game_main();
