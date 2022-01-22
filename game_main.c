@@ -2,17 +2,11 @@
 #include <string.h>
 
 
-# include "main.c"
-# include "board.c"
+# include "board.h"
 # include "game_main.h"
 
-#define ERROR (1)
-#define FIRST_TURN  1
-#define SECOND_TURN 2
-#define GAME_WIN 1
-#define GAME_END -1 
 
-int GAME_MAIN() {
+int game_main() {
 
 	while(1){
 		static	int turn = FIRST_TURN;		/* 1:先行 、 2:後攻  */
@@ -27,7 +21,7 @@ int GAME_MAIN() {
 				int draw_count = 0;			/* 0:初期値、9:ゲーム終了（引き分け）*/
 				
 		if(draw_count == 9){
-			return 1;
+			return RESULT_DRAW;
 		}
 
 		/* プレイヤー操作 */
@@ -75,14 +69,14 @@ int GAME_MAIN() {
 			|| ((board[0][0] == bord[1][1]) && (board[0][0] == bord[2][2]))		/* 右下がり（斜め）がそろっているか？ */
 			|| ((board[0][0] == bord[1][0]) && (board[0][0] == bord[2][0])))	/* 一列目（縦）がそろっているか？ */
 			{	
-
+				game_end_flg = 1;
 			}
 		}
 
 		if(board[0][1] != 0){
 			if((board[0][1] == bord[1][1]) && (board[0][1] == bord[2][1]))		/* 二列目（縦）がそろっているか？ */
 			{	
-
+				game_end_flg = 1;
 			}
 		}
 
@@ -90,21 +84,31 @@ int GAME_MAIN() {
 			if((board[0][2] == bord[1][1]) && (board[0][0] == bord[2][0]))		/* 左下がり（斜め）がそろっているか？ */
 			|| ((board[0][2] == bord[1][2]) && (board[0][2] == bord[2][2])))	/* 三列目（縦）がそろっているか？ */
 			{	
-
+				game_end_flg = 1;
 			}
 		}
 
 		if(board[1][0] != 0){
 			if((board[1][0] == bord[1][1]) && (board[1][0] == bord[1][2]))		/* 二行目（横）がそろっているか？ */
 			{
-
+				game_end_flg = 1;
 			}
 		}
 
 		if(board[2][0] != 0){
 			if((board[2][0] == bord[2][1]) && (board[2][0] == bord[2][2]))		/* 三行目（横）がそろっているか？ */
 			{
+				game_end_flg = 1;
+			}
+		}
 
+		/* 勝者が決まる時 */
+		if(game_end_flg == 1){
+			if(turn == FIRST_TURN){
+				return FIRST_TURN;
+			}
+			else{
+				return SECOND_TURN;
 			}
 		}
 
