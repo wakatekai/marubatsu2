@@ -1,42 +1,46 @@
-#include "board.h"
-
+/* 盤面操作処理ファイル */
 #include <stdio.h>
+#include "board.h"
 
 /* #define DEBUG_BOARD_C */
 
 static int board[BOARD_ROW][BOARD_COL];
 
+/* 盤面初期化関数 */
 void clear_Board(int row, int col) {
     int i = 0;
     int j = 0;
     for (i = 0; i < row; i++) {
         for (j = 0; j < col; j++) {
-            board[i][j] = 0;
+            board[i][j] = BOARD_EMPTY;
         }
     }
     return;
 }
 
+/* 盤面設定関数 */
 int set_Board(int row, int col, int num) {
     int status = STATUS_INIT;
-
+    /* 盤面の大きさを超えた入力は異常と判定 */
     if (row >= BOARD_ROW || col >= BOARD_COL) {
         status = STATUS_ERROR;
     } else {
-        if(board[row][col] == 0){
+        /* 盤面が空いている時のみ設定できる */
+        if(board[row][col] == BOARD_EMPTY){
             board[row][col] = num;
             status = STATUS_OK;
         }else{
-            status = STATUS_ERROR;
+            status = STATUS_CONTINUE;
         }
     }
 
     return status;
 }
 
+/* 盤面取得関数 */
 int get_Board(int row, int col) {
-    int return_val = 0;
-
+    int return_val = STATUS_INIT;
+    /* 盤面の大きさを超えた入力は異常と判定 */
     if (row > BOARD_ROW || col > BOARD_COL) {
         return_val = STATUS_ERROR;
     } else {
@@ -46,6 +50,7 @@ int get_Board(int row, int col) {
     return return_val;
 }
 
+/* 盤面表示関数 */
 int show_Board(int row, int col) {
     int i = 0;
     int j = 0;
@@ -58,7 +63,7 @@ int show_Board(int row, int col) {
     }
     printf("\n");
     for (i = 0; i < row; i++) {
-        printf("%c", i + 65);
+        printf("%d", i);
         for (j = 0; j < col; j++) {
             ch = board[i][j];
             switch (ch) {
@@ -75,6 +80,7 @@ int show_Board(int row, int col) {
                     status = STATUS_OK;
                     break;
                 default:
+                    /*  */
                     status = STATUS_ERROR;
                     break;
             }
