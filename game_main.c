@@ -7,10 +7,10 @@
 int game_main() {
 	int turn = FIRST_TURN;				/* 1:先行 、 2:後攻  */
 	int draw_count = 0;					/* 0:初期値、9:ゲーム終了（引き分け）*/
+	int return_value = 0;
 	clear_Board(LENGTH, LENGTH);
+	
 	while(1){
-				int error_flg = 0;			/* エラー判定 */
-				int return_value = 0;
 //				int game_end_flg = 0;		/* ゲーム継続判定判定 0:継続、-1:終了*/
 		
 		/* 盤面へのセット */
@@ -39,7 +39,8 @@ int game_main() {
 		
 		/* 盤面の表示 */
 		if(show_Board(LENGTH, LENGTH) == STATUS_ERROR){	/* 正しくセットできなかった時？ */
-			return  (ERROR);
+			return_value = (ERROR);
+			break;
 		}
 
 		/* 操作数のカウント */
