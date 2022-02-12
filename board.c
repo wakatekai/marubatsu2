@@ -27,7 +27,7 @@ int set_Board(int row, int col, int num) {
             board[row][col] = num;
             status = STATUS_OK;
         }else{
-            status = STATUS_ERROR;
+            status = STATUS_CONTINUE;
         }
     }
 
