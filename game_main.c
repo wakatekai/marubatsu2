@@ -49,7 +49,6 @@ int game_main() {
 			return  (ERROR);
 		}
 		else{
-			set_Board(i, j, turn); 						/* セット*/
 			if(set_Board(i, j, turn) == STATUS_ERROR){	/* 正しくセットできなかった時？ */
 				return  (ERROR);
 			}
