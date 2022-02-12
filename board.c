@@ -63,12 +63,15 @@ int show_Board(int row, int col) {
             switch (ch) {
                 case 0:
                     printf(" -");
+                    status = STATUS_OK;
                     break;
                 case 1:
-                    printf(" Å°");
+                    printf(" ‚ñ†");
+                    status = STATUS_OK;
                     break;
                 case 2:
-                    printf(" Å†");
+                    printf(" ‚ñ°");
+                    status = STATUS_OK;
                     break;
                 default:
                     status = STATUS_ERROR;
