@@ -62,6 +62,7 @@ Bool loop_main()
     disp_gameresult(result);
 
     printf("何かキーを押してください\n");
+    fflush(stdin);
     getchar();
     
     return true;
