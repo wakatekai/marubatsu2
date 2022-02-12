@@ -3,8 +3,6 @@
 #include <stdio.h>
 
 /* #define DEBUG_BOARD_C */
-#define BOARD_ROW (3)
-#define BOARD_COL (3)
 
 int board[BOARD_ROW][BOARD_COL];
 
@@ -33,7 +31,6 @@ int set_Board(int row, int col, int num) {
 }
 
 int get_Board(int row, int col) {
-    int status = STATUS_INIT;
     int return_val = 0;
 
     if (row > BOARD_ROW || col > BOARD_COL) {
