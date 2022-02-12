@@ -144,7 +144,7 @@ int game_main() {
 			turn == FIRST_TURN;
 		}
 		
-		int show_Board(int LENGTH, int LENGTH);
+		int show_Board(LENGTH, LENGTH);
 
 		/* 操作数のカウント */
 		draw_count++;
