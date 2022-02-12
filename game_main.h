@@ -11,4 +11,4 @@
 
 int game_main();
 int player_set(int turn);
-int game_judge();
+int game_judge(int turn);
