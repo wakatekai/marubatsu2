@@ -1,9 +1,12 @@
 #define BOARD_ROW (3)
 #define BOARD_COL (3)
 
-#define STATUS_INIT (0)
-#define STATUS_OK (1)
-#define STATUS_ERROR (-1)
+enum en_status {
+    STATUS_INIT = 0,
+    STATUS_OK,
+    STATUS_CONTINUE,
+    STATUS_ERROR = -1
+};
 
 void clear_Board(int row, int col);
 int set_Board(int row, int col, int num);
