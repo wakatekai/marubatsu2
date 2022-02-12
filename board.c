@@ -23,7 +23,7 @@ int set_Board(int row, int col, int num) {
     if (row >= BOARD_ROW || col >= BOARD_COL) {
         status = STATUS_ERROR;
     } else {
-        if(board[row][col] != 0){
+        if(board[row][col] == 0){
             board[row][col] = num;
             status = STATUS_OK;
         }else{
