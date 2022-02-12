@@ -58,11 +58,14 @@ int show_Board(int row, int col) {
     int status = STATUS_INIT;
 
     printf(" ");
+    /* 横軸の数字表示 */
     for (j = 0; j < col; j++) {
         printf(" %d", j);
     }
     printf("\n");
+
     for (i = 0; i < row; i++) {
+        /* 縦軸の数字表示 */
         printf("%d", i);
         for (j = 0; j < col; j++) {
             ch = board[i][j];
