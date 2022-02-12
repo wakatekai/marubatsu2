@@ -13,6 +13,10 @@ int game_main() {
 	while(1){
 //				int game_end_flg = 0;		/* ゲーム継続判定判定 0:継続、-1:終了*/
 		
+		if(draw_count == 9){
+			printf("盤面が埋まったのでゲームを終了します。\n");
+		break;
+		}
 		/* 盤面へのセット */
 		if(player_set(turn) == ERROR){
 			return_value = ERROR;
