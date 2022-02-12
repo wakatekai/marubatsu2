@@ -10,3 +10,5 @@
 #define LENGTH  3
 
 int game_main();
+int player_set(int turn);
+int game_judge();
