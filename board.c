@@ -4,7 +4,7 @@
 
 /* #define DEBUG_BOARD_C */
 
-int board[BOARD_ROW][BOARD_COL];
+static int board[BOARD_ROW][BOARD_COL];
 
 void clear_Board(int row, int col) {
     int i = 0;
@@ -23,8 +23,12 @@ int set_Board(int row, int col, int num) {
     if (row >= BOARD_ROW || col >= BOARD_COL) {
         status = STATUS_ERROR;
     } else {
-        status = STATUS_OK;
-        board[row][col] = num;
+        if(board[row][col] != 0){
+            board[row][col] = num;
+            status = STATUS_OK;
+        }else{
+            status = STATUS_ERROR;
+        }
     }
 
     return status;
