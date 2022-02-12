@@ -138,13 +138,16 @@ int game_main() {
 
 		/* プレイヤーの交代 */
 		if (turn == FIRST_TURN) {
-			turn == SECOND_TURN;
+			turn = SECOND_TURN;
 		}
 		else{
-			turn == FIRST_TURN;
+			turn = FIRST_TURN;
 		}
 		
-		int show_Board(LENGTH, LENGTH);
+		/* 盤面の表示 */
+		if(show_Board(LENGTH, LENGTH) == STATUS_ERROR){	/* 正しくセットできなかった時？ */
+			return  (ERROR);
+		}
 
 		/* 操作数のカウント */
 		draw_count++;
