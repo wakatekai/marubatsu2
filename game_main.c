@@ -56,10 +56,10 @@ int game_main() {
 
 		/* 勝敗の判定 */
 		/* 横の判定 */
-		for(row = 0;row < LENGTH,row++){
+		for(row = 0;row < LENGTH;row++){
 			target_cell = get_Board(row,0);
 			cell_count = 0;
-			for(col = 1;col < LENGTH,col++){
+			for(col = 1;col < LENGTH;col++){
 				if((get_Board(row,col) == target_cell)		/* セルの値が一致 */
 				&& (target_cell != 0)){						/* セルの値が0(初期値)以外 */
 					cell_count++;
@@ -76,10 +76,10 @@ int game_main() {
 		}
 
 		/* 縦の判定 */
-		for(col = 0;col < LENGTH,col++){
+		for(col = 0;col < LENGTH;col++){
 			target_cell = get_Board(0,col);
 			cell_count = 0;
-			for(row = 1;row < LENGTH,row++){
+			for(row = 1;row < LENGTH;row++){
 				if((get_Board(row,col) == target_cell)		/* セルの値が一致 */
 				&& (target_cell != 0)){						/* セルの値が0(初期値)以外 */
 					cell_count++;
@@ -99,7 +99,7 @@ int game_main() {
 		target_cell = get_Board(0,0);
 		cell_count = 0;
 		col = 1;
-		for(row = 1;row < LENGTH,row++){
+		for(row = 1;row < LENGTH;row++){
 			if((get_Board(row,col) == target_cell)		/* セルの値が一致 */
 			&& (target_cell != 0)){						/* セルの値が0(初期値)以外 */
 				cell_count++;
@@ -119,7 +119,7 @@ int game_main() {
 		target_cell = get_Board(LENGTH - 1,LENGTH - 1);
 		cell_count = 0;
 		col = LENGTH - 2;
-		for(row = LENGTH - 2;row > -1,row--){
+		for(row = LENGTH - 2;row > -1;row--){
 			if((get_Board(row,col) == target_cell)		/* セルの値が一致 */
 			&& (target_cell != 0)){						/* セルの値が0(初期値)以外 */
 				cell_count++;
