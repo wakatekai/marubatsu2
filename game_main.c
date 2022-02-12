@@ -138,10 +138,10 @@ int game_main() {
 
 		/* プレイヤーの交代 */
 		if (turn == FIRST_TURN) {
-			turn == SECOND_TURN;
+			turn = SECOND_TURN;
 		}
 		else{
-			turn == FIRST_TURN;
+			turn = FIRST_TURN;
 		}
 		
 		/* 盤面の表示 */
