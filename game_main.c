@@ -17,8 +17,8 @@ int game_main() {
 				int board[LENGTH][LENGTH];	/* 盤面情報　0:空白、1:先行、2:後攻*/
 				int row = 0;				/* 行（判定用） */
 				int col = 0;				/* 列（判定用） */
-				int target_cel =0;
-				int cel_count =0;
+				int target_cell =0;
+				int cell_count =0;
 				int draw_count = 0;			/* 0:初期値、9:ゲーム終了（引き分け）*/
 
 
@@ -58,12 +58,12 @@ int game_main() {
 		/* 横の判定 */
 		for(row = 0;row < LENGTH,row++){
 			target_cell = get_Board(row,0);
-			cel_count = 0;
+			cell_count = 0;
 			for(col = 1;col < LENGTH,col++){
 				if((get_Board(row,col) == target_cell)		/* セルの値が一致 */
 				&& (target_cell != 0)){						/* セルの値が0(初期値)以外 */
-					cel_count++;
-					if(cel_count == LENGTH - 1){			/* 3マス一致した時 */
+					cell_count++;
+					if(cell_count == LENGTH - 1){			/* 3マス一致した時 */
 						if(turn == FIRST_TURN){
 							return FIRST_TURN;				/* 先行の勝利 */
 						}
@@ -78,12 +78,12 @@ int game_main() {
 		/* 縦の判定 */
 		for(col = 0;col < LENGTH,col++){
 			target_cell = get_Board(0,col);
-			cel_count = 0;
+			cell_count = 0;
 			for(row = 1;row < LENGTH,row++){
 				if((get_Board(row,col) == target_cell)		/* セルの値が一致 */
 				&& (target_cell != 0)){						/* セルの値が0(初期値)以外 */
-					cel_count++;
-					if((cel_count == LENGTH - 1){			/* 3マス一致した時 */
+					cell_count++;
+					if(cell_count == LENGTH - 1){			/* 3マス一致した時 */
 						if(turn == FIRST_TURN){
 							return FIRST_TURN;				/* 先行の勝利 */
 						}
@@ -97,13 +97,13 @@ int game_main() {
 		
 		/* 斜め（右下がり）の判定 */
 		target_cell = get_Board(0,0);
-		cel_count = 0;
+		cell_count = 0;
 		col = 1;
 		for(row = 1;row < LENGTH,row++){
 			if((get_Board(row,col) == target_cell)		/* セルの値が一致 */
 			&& (target_cell != 0)){						/* セルの値が0(初期値)以外 */
-				cel_count++;
-				if((cel_count == LENGTH - 1){			/* 3マス一致した時 */
+				cell_count++;
+				if(cell_count == LENGTH - 1){			/* 3マス一致した時 */
 					if(turn == FIRST_TURN){
 						return FIRST_TURN;				/* 先行の勝利 */
 					}
@@ -117,13 +117,13 @@ int game_main() {
 
 		/* 斜め（左下がり）の判定 */
 		target_cell = get_Board(LENGTH - 1,LENGTH - 1);
-		cel_count = 0;
+		cell_count = 0;
 		col = LENGTH - 2;
 		for(row = LENGTH - 2;row > -1,row--){
 			if((get_Board(row,col) == target_cell)		/* セルの値が一致 */
 			&& (target_cell != 0)){						/* セルの値が0(初期値)以外 */
-				cel_count++;
-				if((cel_count == LENGTH - 1){			/* 3マス一致した時 */
+				cell_count++;
+				if(cell_count == LENGTH - 1){			/* 3マス一致した時 */
 					if(turn == FIRST_TURN){
 						return FIRST_TURN;				/* 先行の勝利 */
 					}
