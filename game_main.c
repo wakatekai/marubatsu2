@@ -5,11 +5,12 @@
 # include "board.h"
 # include "game_main.h"
 
+static	int turn = FIRST_TURN;				/* 1:先行 、 2:後攻  */
+
 
 int game_main() {
 
 	while(1){
-		static	int turn = FIRST_TURN;		/* 1:先行 、 2:後攻  */
 				int i = 0;					/* 盤面の行(セット用) 0～2 */
 				int j = 0;					/* 盤面の列(セット用) 0～2 */
 				int error_flg = 0;			/* エラー判定 */
@@ -142,6 +143,8 @@ int game_main() {
 		else{
 			turn == FIRST_TURN;
 		}
+		
+		int show_Board(int LENGTH, int LENGTH);
 
 		/* 操作数のカウント */
 		draw_count++;
